@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Form extends React.Component {
   render() {
@@ -38,7 +39,7 @@ class Form extends React.Component {
               type="number"
               name="number"
               value={ cardAttr1 }
-              onChage={ onInputChange }
+              onChange={ onInputChange }
               id="number"
             />
           </label>
@@ -58,7 +59,7 @@ class Form extends React.Component {
             <input
               type="number"
               name="number3"
-              valeu={ cardAttr3 }
+              value={ cardAttr3 }
               onChange={ onInputChange }
               data-testid="attr3-input"
               id="number3"
@@ -81,21 +82,21 @@ class Form extends React.Component {
               id="rare"
               data-testid="rare-input"
               value={ cardRare }
-              onChage={ onInputChange }
+              onChange={ onInputChange }
             >
               <option value="normal">Normal</option>
               <option value="raro">Raro</option>
               <option value="muito raro">Muito Raro</option>
             </select>
           </label>
-          <label htmlFor="trunfo">
+          <label htmlFor="super-trunfo">
             <input
               type="checkbox"
-              name="trunfo"
+              name="super-trunfo"
               checked={ cardTrunfo }
               onChange={ onInputChange }
               data-testid="trunfo-input"
-              id="trunfo"
+              id="super-trunfo"
             />
             Super Trybe Trunfo
           </label>
