@@ -1,0 +1,36 @@
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-left: 20px;
+}
+
+form input {
+  margin-top: 20px;
+  padding: 10px;
+  width: 25%;
+}
+
+form textarea {
+  margin-top: 20px;
+  padding: 10px;
+  width: 25%;
+}
+
+form select {
+  margin-top: 20px;
+  padding: 10px;
+  width: 25%;
+}
+
+form button {
+  margin-top: 20px;
+  padding: 10px;
+  width: 25%;
+}
+
+.card {
+  display: inline-block;
+  flex-direction: column;
+  margin-left: 50px;
+}
