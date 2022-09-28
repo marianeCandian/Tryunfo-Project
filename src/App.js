@@ -17,7 +17,6 @@ class App extends React.Component {
       cardRare: 'normal',
       cardTrunfo: false,
       isSaveButtonDisabled: true,
-      // eslint-disable-next-line react/no-unused-state
       btnSave: [],
       hasTrunfo: false,
     };
@@ -43,8 +42,7 @@ class App extends React.Component {
       cardRare };
     if (newCard) {
       this.setState((prevent) => ({
-        // eslint-disable-next-line react/no-unused-state
-        btnSave: [prevent.bntSave, newCard],
+        btnSave: [prevent.btnSave, newCard],
         cardName: '',
         cardDescription: '',
         cardAttr1: '0',
