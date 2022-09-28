@@ -82,6 +82,15 @@ class App extends React.Component {
     }, this.buttonDisabled);
   };
 
+  removeItem = ({ target }) => {
+    const { btnSave, hasTrunfo } = this.state;
+    const result = btnSave.filter((elem) => elem.cardName !== target.id);
+    this.setState({
+      btnSave: result,
+      hasTrunfo: btnSave.cardTrunfo ? hasTrunfo : false,
+    });
+  };
+
   render() {
     const { cardName, cardDescription, cardAttr1, cardAttr2,
       cardAttr3, cardImage, cardRare, cardTrunfo, isSaveButtonDisabled,
@@ -115,19 +124,29 @@ class App extends React.Component {
         />
         <div>
           {btnSave.map((item) => (
-            <div key={ item.cardName }>
-              <Card
-                key={ item.cardName }
-                cardName={ item.cardName }
-                cardDescription={ item.cardDescription }
-                cardAttr1={ item.cardAttr1 }
-                cardAttr2={ item.cardAttr2 }
-                cardAttr3={ item.cardAttr3 }
-                cardImage={ item.cardImage }
-                cardRare={ item.cardRare }
-                cardTrunfo={ item.cardTrunfo }
-              />
-            </div>
+            <>
+              <div key={ item.cardName }>
+                <Card
+                  key={ item.cardName }
+                  cardName={ item.cardName }
+                  cardDescription={ item.cardDescription }
+                  cardAttr1={ item.cardAttr1 }
+                  cardAttr2={ item.cardAttr2 }
+                  cardAttr3={ item.cardAttr3 }
+                  cardImage={ item.cardImage }
+                  cardRare={ item.cardRare }
+                  cardTrunfo={ item.cardTrunfo }
+                />
+              </div>
+              <button
+                data-testid="delete-button"
+                id={ item.cardName }
+                type="button"
+                onClick={ this.removeItem }
+              >
+                Excluir
+              </button>
+            </>
           ))}
         </div>
       </div>
