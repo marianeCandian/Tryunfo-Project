@@ -40,18 +40,16 @@ class App extends React.Component {
       cardAttr3,
       cardImage,
       cardRare };
-    if (newCard) {
-      this.setState((prevent) => ({
-        btnSave: [prevent.btnSave, newCard],
-        cardName: '',
-        cardDescription: '',
-        cardAttr1: '0',
-        cardAttr2: '0',
-        cardAttr3: '0',
-        cardImage: '',
-        cardRare: 'normal',
-      }));
-    }
+    this.setState((prevent) => ({
+      btnSave: [...prevent.btnSave, newCard],
+      cardName: '',
+      cardDescription: '',
+      cardAttr1: '0',
+      cardAttr2: '0',
+      cardAttr3: '0',
+      cardImage: '',
+      cardRare: 'normal',
+    }));
     this.hasTrunfo();
   };
 
@@ -87,7 +85,7 @@ class App extends React.Component {
   render() {
     const { cardName, cardDescription, cardAttr1, cardAttr2,
       cardAttr3, cardImage, cardRare, cardTrunfo, isSaveButtonDisabled,
-      hasTrunfo } = this.state;
+      hasTrunfo, btnSave } = this.state;
     return (
       <div>
         <h1>Tryunfo</h1>
@@ -115,6 +113,23 @@ class App extends React.Component {
           cardRare={ cardRare }
           cardTrunfo={ cardTrunfo }
         />
+        <div>
+          {btnSave.map((item) => (
+            <div key={ item.cardName }>
+              <Card
+                key={ item.cardName }
+                cardName={ item.cardName }
+                cardDescription={ item.cardDescription }
+                cardAttr1={ item.cardAttr1 }
+                cardAttr2={ item.cardAttr2 }
+                cardAttr3={ item.cardAttr3 }
+                cardImage={ item.cardImage }
+                cardRare={ item.cardRare }
+                cardTrunfo={ item.cardTrunfo }
+              />
+            </div>
+          ))}
+        </div>
       </div>
     );
   }
